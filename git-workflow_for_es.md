@@ -1,12 +1,19 @@
 ---
+# tutorial --> https://www.youtube.com/watch?v=EzQ-p41wNEE
 marp: true
-theme: gaia
-# theme: uncover
+# theme: gaia
+theme: uncover
+class: invert
 paginate: true
 # backgroundImage: url('https://url/to/cutoff/image.png')
 ---
 
-# Git Workflow, Branching, and Commit Message Conventions
+# Git: Workflow and Conventions for Embedded Systems
+
+<center>Basics, Branching, and Commit Message Conventions
+\> Pasakorn Tiwatthanont
+</center>
+10/2024
 
 #### **Presented by**: [Your Name]
 

@@ -4,18 +4,25 @@ marp: true
 # theme: gaia
 theme: uncover
 class: invert
+# style: |
+#     section h2 {
+#         text-align: left;
+#     }
 paginate: true
 # backgroundImage: url('https://url/to/cutoff/image.png')
+# math: mathjax
+# header: 'header'
+# footer: 'footer'
 ---
 
 # Git: Workflow and Conventions for Embedded Systems
 
-<center>Basics, Branching, and Commit Message Conventions
-\> Pasakorn Tiwatthanont
-</center>
-10/2024
+Basics, Branching, and Commit Message Conventions
 
-#### **Presented by**: [Your Name]
+<span style="color:blue;">**Presented by**</span>
+Pasakorn Tiwatthanont [10/2024]
+
+<!-- _paginate: hide -->
 
 ---
 
@@ -41,9 +48,9 @@ paginate: true
 ## Basic Git Workflow Steps
 
 1. **Clone the Repository**
-   - Start by cloning the main repository to have a local copy.
+   - Start by cloning, to have a local copy.
 2. **Create a New Branch**
-   - Always work on a separate branch for each feature or fix.
+   - Each branch has just one objective (feature or fix).
 3. **Make Changes & Commit Regularly**
    - Commit often, with small changes and meaningful messages.
 
@@ -52,13 +59,11 @@ paginate: true
 ## Basic Git Workflow Steps (cont.)
 
 4. **Sync with the Main Branch Regularly**
-   - Regularly pull changes from the main branch to avoid conflicts.
+   - Pull to avoid conflicts.
 5. **Push Your Branch to Remote**
-   - Push your changes when you’re ready for review.
-6. **Create a Pull Request (PR)**
+   - Push your changes (commits) when you’re ready for review.
+6. **Create a Pull Request (PR), then Merge**
    - Get feedback and approval for your changes before merging.
-7. **Merge & Clean Up**
-   - Merge once approved, and --delete branches that are no longer needed--.
 
 ---
 
@@ -83,12 +88,34 @@ paginate: true
 
 ---
 
+![bg h:100% left](git-workflow_for_es/branching_strategy_1.png)
+
+**Feature Branches**
+Isolate new features to avoid disrupting the main codebase.
+
+---
+
+![bg h:100% left](git-workflow_for_es/branching_strategy_2.png)
+
+**Develop Branch**
+`feature/<...>` is branched to develop a new feature,
+which will be merged on `develop`, released on `main`.
+
+---
+
+![bg h:100% left](git-workflow_for_es/branching_fix.png)
+
+**Bugfix Branch**
+`bugfix/<...>` is binded with one specific issue.
+
+---
+
 ## Branch Naming Conventions
 
 - **Feature Branches**: `feature/<description>`
-  - Example: `feature/1-user-authentication`
+  - Example: `feature/1-led-running`
 - **Bug Fix Branches**: `bugfix/<description>` or `fix/<description>`
-  - Example: `fix/2-login-issue`
+  - Example: `fix/2-uart-unstable`
 - **Documentation Branches**: `docs/<description>`
   - Example: `docs/3-update-readme`
 
@@ -113,22 +140,10 @@ paginate: true
 
 ---
 
-## Types of Commit Messages
-
-- **feat**: New feature – `feat(auth): add user login functionality`
-- **fix**: Bug fix – `fix(ui): correct button alignment`
-- **docs**: Documentation – `docs(readme): update install instructions`
-- **refactor**: Code refactoring – `refactor(auth): simplify token logic`
-- **perf**: Performance improvements – `perf: optimize query`
-- **test**: Adding tests – `test(auth): add login unit tests`
-- **chore**: Routine tasks – `chore(deps): update npm packages`
-
----
-
 ## Commit Message Structure
 
 - **Scope** (optional):
-  - Specifies the area of the code affected, e.g., `auth`, `ui`, or `api`.
+  - Specifies the area of the code affected, e.g., `LED`, `IO`, or `UART`.
 - **Subject**:
   - Brief, imperative description of the change.
 - **Body** (optional):
@@ -138,20 +153,31 @@ paginate: true
 
 ---
 
+## Types of Commit Messages
+
+- **feat**: New feature – `feat(LED): add LED running`
+- **refactor**: Easier to understand – `refactor(UART): small-capitalize var`
+- **fix**: Bug fix – `fix(IOC): pull-up unused pins`
+- **test**: Adding tests – `test(UART): add tests`
+- **docs**: Documentation – `docs: update setup instructions`
+- **chore**: Etc. – `chore: add EEPROM cleaner script`
+
+---
+
 ## Example Commit Message
 
 ```text
-feat(api): add endpoint for user profile update
+feat(LED): lit LED responses
 
-This endpoint allows users to update their profile information,
-including email and username. Validations added for required fields.
+LED light displays the state correcponding to the activity that
+user commanded.
 
 Closes #123
 ```
 
 - **Key Elements**:
-  - `feat(api)`: Type and scope.
-  - **Subject**: “add endpoint for user profile update.”
+  - `feat(LED)`: Type and scope.
+  - **Subject**: "lit LED responses"
   - **Body**: Adds context for the team.
   - **Footer**: Links to issue #123.
 
@@ -159,7 +185,11 @@ Closes #123
 
 ## Summary and Best Practices
 
-- **Follow Branching Conventions**: Keep branches organized and named for clarity.
-- **Use Descriptive Commit Messages**: Make it easy to understand changes at a glance.
-- **Commit Often and Small**: Keeps changes manageable and reduces conflicts.
-- **Review Regularly**: Pull requests and feedback ensure high-quality code.
+- **Follow Branching Conventions**:
+  - Don't forget the structure, and naming.
+- **Use Descriptive Commit Messages**:
+  - Make your friend understand changes at a glance.
+- **Commit Often and Small**:
+  - Keeps changes manageable and reduces conflicts.
+- **Review Regularly**:
+  - Pull requests and feedback ensure high-quality code.

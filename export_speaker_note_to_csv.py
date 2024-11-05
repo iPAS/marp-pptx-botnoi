@@ -8,7 +8,15 @@ import pandas as pd
 import argparse
 
 
-def export_notes_to_csv(pptx_file, output_csv):
+# Set up argument parser
+parser = argparse.ArgumentParser(description="Export speaker notes from a PowerPoint presentation to a CSV file.")
+parser.add_argument('-i', '--input', required=True, help="Path to the input PowerPoint (.pptx) file")
+parser.add_argument('-o', '--output', required=True, help="Path to the output CSV file")
+parser.add_argument('--botnoi', action='store_true', help="Specify the output format to Botnoi")
+
+
+# -----------------------------------------------------------------------------
+def export_notes_to_csv(pptx_file, output_csv, args):
     # Load the PowerPoint presentation
     presentation = Presentation(pptx_file)
 
@@ -24,10 +32,13 @@ def export_notes_to_csv(pptx_file, output_csv):
             # convert multiline text to single line
             notes_text = notes_text.replace('\n', '  ').replace('\r', '')
         else:
-            notes_text = ""
+            notes_text = ''
 
         # Append slide number and notes to list
-        notes_data.append({"Slide Number": f"[{slide_number}]", "Notes": notes_text})
+        if args.botnoi:
+            notes_data.append({'text': notes_text if notes_text else '.' , 'speaker_name': 'Ava'})
+        else:
+            notes_data.append({"Slide Number": f"[{slide_number}]", "Notes": notes_text})
 
     # Convert the data to a DataFrame
     df = pd.DataFrame(notes_data)
@@ -37,17 +48,14 @@ def export_notes_to_csv(pptx_file, output_csv):
     print(f"Notes exported to {output_csv}")
 
 
-# Set up argument parser
-parser = argparse.ArgumentParser(description="Export speaker notes from a PowerPoint presentation to a CSV file.")
-parser.add_argument('-i', '--input', required=True, help="Path to the input PowerPoint (.pptx) file")
-parser.add_argument('-o', '--output', required=True, help="Path to the output CSV file")
+# -----------------------------------------------------------------------------
+if __name__ == '__main__':
+    # Parse the arguments
+    args = parser.parse_args()
 
-# Parse the arguments
-args = parser.parse_args()
+    # Set the file paths from the parsed arguments
+    pptx_file = args.input
+    output_csv = args.output
 
-# Set the file paths from the parsed arguments
-pptx_file = args.input
-output_csv = args.output
-
-# Run the export function
-export_notes_to_csv(pptx_file, output_csv)
+    # Run the export function
+    export_notes_to_csv(pptx_file, output_csv, args)

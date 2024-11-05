@@ -13,6 +13,12 @@ paginate: true
 # math: mathjax
 # header: 'header'
 # footer: 'footer'
+title: Git Workflow and Conventions for Embedded Systems
+description: Basics, Branching, and Commit Message Conventions
+author: Pasakorn Tiwatthanont
+keywords: git, branching convention, commit message
+# url: https://marp.app/
+# image: https://marp.app/og-image.jpg
 ---
 
 # Git: Workflow and Conventions for Embedded Systems

@@ -21,11 +21,13 @@ def export_notes_to_csv(pptx_file, output_csv):
         if slide.has_notes_slide:
             notes_slide = slide.notes_slide
             notes_text = notes_slide.notes_text_frame.text
+            # convert multiline text to single line
+            notes_text = notes_text.replace('\n', '  ').replace('\r', '')
         else:
             notes_text = ""
 
         # Append slide number and notes to list
-        notes_data.append({"Slide Number": slide_number, "Notes": notes_text})
+        notes_data.append({"Slide Number": f"[{slide_number}]", "Notes": notes_text})
 
     # Convert the data to a DataFrame
     df = pd.DataFrame(notes_data)

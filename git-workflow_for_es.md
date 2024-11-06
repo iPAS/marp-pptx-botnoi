@@ -221,7 +221,7 @@ which will be merged on `develop`, released on `main`.
 ![bg h:100% left](git-workflow_for_es/branching_fix.png)
 
 **Bugfix Branch**
-`bugfix/<  delay{0.5}  .>` is binded with one specific issue.
+`bugfix/<...>` is binded with one specific issue.
 
 <!--
 สำหรับการแก้ไขข้อผิดพลาด  delay{0.5}  
@@ -236,11 +236,11 @@ which will be merged on `develop`, released on `main`.
 
 ## Branch Naming Conventions
 
-- **Feature Branches**: `feature/<description>`
+- **Feature**: `feature/<description>`
   - Example: `feature/1-led-running`
-- **Bug Fix Branches**: `bugfix/<description>` or `fix/<description>`
+- **Bug Fix**: `bugfix/<description>` or `fix/<description>`
   - Example: `fix/2-uart-unstable`
-- **Documentation Branches**: `docs/<description>`
+- **Documentation**: `docs/<description>`
   - Example: `docs/3-update-readme`
 
 **Note**: always put an issue number in front of the description.

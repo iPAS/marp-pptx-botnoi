@@ -1,13 +1,18 @@
 ---
 # tutorial --> https://www.youtube.com/watch?v=EzQ-p41wNEE
 marp: true
-# theme: gaia
-theme: uncover
-class: invert
-# style: |
-#     section h2 {
-#         text-align: left;
-#     }
+theme: gaia
+# theme: uncover
+class:
+  - invert
+#  - lead
+style: |
+    h1 {
+        color: white;
+    }
+    h2 {
+        color: #ffffaa;
+    }
 paginate: true
 # backgroundImage: url('https://url/to/cutoff/image.png')
 # math: mathjax

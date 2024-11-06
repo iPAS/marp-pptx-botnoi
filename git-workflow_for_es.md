@@ -3,6 +3,7 @@
 marp: true
 theme: gaia
 # theme: uncover
+#theme: graph_paper
 class:
   - invert
 #  - lead

@@ -1,20 +1,20 @@
 ---
 # tutorial --> https://www.youtube.com/watch?v=EzQ-p41wNEE
 marp: true
-theme: gaia
-# theme: uncover
+#theme: gaia
+theme: uncover
 #theme: graph_paper
 class:
-  - invert
-#  - lead
+#  - invert
+  - lead
 style: |
     h1 {
-        color: white;
+        color: black;
     }
     h2 {
-        color: #ffffaa;
+        color: #0000FF;
     }
-paginate: true
+#paginate: true
 # backgroundImage: url('https://url/to/cutoff/image.png')
 # math: mathjax
 # header: 'header'

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 filename=$1
-[[ ! -f "${filename}" ]] && filename=git-workflow_for_es
+[[ -z "${filename}" ]] && filename=git-workflow_for_es
 
 # npm install --save-dev @marp-team/marp-cli
 THEME="--theme ~/.marp/themes/graph_paper.css"

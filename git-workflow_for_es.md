@@ -38,7 +38,8 @@ Pasakorn Tiwatthanont [10/2024]
 
 <!--
 วันนี้ขอนำเสนอ  delay{0.5}
-Git Workflow and Conventions for Embedded Systems  delay{0.5}
+Git Workflow and Conventions  delay{0.5}
+  for Embedded Systems  delay{0.5}
 เมื่อให้ทีมทำงานร่วมกัน อย่างมีประสิทธิภาพ  delay{0.5}
 สำหรับเราชาว Embedded System Developers  delay{0.5}
 มาเริ่มกันเลย
@@ -212,9 +213,9 @@ which will be merged on `develop`, released on `main`.
 ดังนั้น  delay{0.5}
 จึงมีการแยก ระหว่าง branch 'develop' และ 'master'  delay{0.5}
 
-การแตก brnach เพื่อพัฒนา จะทำบน 'develop' ทั้งหมด  delay{0.5}
+การแตก branch เพื่อพัฒนา จะทำบน branch 'develop' ทั้งหมด  delay{0.5}
 จนเมื่อจะส่งมอบให้ user ใช้งาน  delay{0.5}
-จึงค่อยมีการ merge เข้าไปยัง master  delay{0.5}
+จึงค่อยมีการ merge เข้าไปยัง branch master  delay{0.5}
  -->
 
 ---
@@ -258,7 +259,7 @@ feature, bugfix, และ document  delay{0.5}
 ต่อมา  delay{0.5}
 หลัง slash  delay{0.5}
 ตัวเลขที่จะโยงกลับไปยัง issue และชื่อ  delay{0.5}
-ซึ่งมีกติกาคือ small-cap และ hyphen  delay{0.5}
+ซึ่งมีกติกาคือ small-capital letter และ hyphen  delay{0.5}
  -->
 
 ---

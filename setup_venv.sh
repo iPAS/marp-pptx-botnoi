@@ -63,7 +63,7 @@ if [ -d "${VENV_PATH}" ]; then
     pip install pip --upgrade
 
     # Install pip requirements
-    pip install -r requirements.pip
+    pip install -r "${CUR_DIR}/requirements.pip"
 
     # Install NodeEnv
     pip install nodeenv
